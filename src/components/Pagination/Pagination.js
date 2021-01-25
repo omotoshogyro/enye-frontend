@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './Pagination.css'
 
-function Pagination({details, showFunction}) {
+function Pagination({details, showFunction, monitor}) {
     const [currentPage, setCurrentPage] = useState(1)
     const totalProfile = details.length
     const perPage = 20
@@ -12,7 +12,8 @@ function Pagination({details, showFunction}) {
 
     useEffect(() => {
         showFunction(shownDetails)
-    }, [currentPage])
+        // console.log(monitor)
+    },[currentPage,monitor])
 
     const setCurrent = (index) => {
         setCurrentPage(index+1)

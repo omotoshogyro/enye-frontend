@@ -41,9 +41,7 @@ function RangeView({ details, type }) {
         const { title, titleLength, totalLength } = range;
 
         return (
-          <>
           <Range type={type} title={title} titleLength={titleLength} totalLength={totalLength} key={index}/>
-          </>
         );
       })}
     </div>

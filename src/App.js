@@ -10,13 +10,17 @@ function App() {
   const [input, setInput] = useState('')
   const [select, setSelect] = useState('')
   const [details, setDetails] = useState([]);
+  
+const [monitor, setMonitor] = useState(false)
+
   useEffect(() => {
     const fetchData = async () => {
-      const render = await Axios.get(
+      const response = await Axios.get(
         "https://api.enye.tech/v1/challenge/records"
       );
-      const result = render.data.records.profiles;
+      const result = response.data.records.profiles;
       setDetails(result);
+      setMonitor(true)
     };
 
     fetchData();
@@ -1517,11 +1521,17 @@ function App() {
 
 // const details = data.records.profiles
 
+
 const [showProfile, setShowProfile] = useState([])
 
 const showFunction = (profiles) => {
   setShowProfile(profiles)
+  console.log('hello')
 }
+
+// useEffect(() => {
+//   setMonitor(true)
+// },[details])
 
 const filteredDetails = details
   .filter((detail) => {
@@ -1544,7 +1554,7 @@ const filteredDetails = details
       <div className="home__left__part">
         <SearchBar  input={input} setInput={setInput} select={select} setSelect={setSelect}/>
         <Details details={showProfile} input={input} select={select}/>
-        <Pagination details={filteredDetails} showFunction={showFunction}/>
+        <Pagination details={filteredDetails} showFunction={showFunction} monitor={monitor}/>
       </div>
 
       <div className="home__right__part">

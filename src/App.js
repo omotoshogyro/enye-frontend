@@ -5,11 +5,13 @@ import Details from "./components/Details/Details";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Pagination from "./components/Pagination/Pagination";
 import RangeView from "./components/RangeView/RangeView";
+import Loading from "./components/Loading";
 
 function App() {
   const [input, setInput] = useState('')
   const [select, setSelect] = useState('')
   const [details, setDetails] = useState([]);
+  const [loader, setLoader] = useState(true)
   
 const [monitor, setMonitor] = useState(false)
 
@@ -21,6 +23,7 @@ const [monitor, setMonitor] = useState(false)
       const result = response.data.records.profiles;
       setDetails(result);
       setMonitor(true)
+      setLoader(false)
     };
 
     fetchData();
@@ -1526,7 +1529,6 @@ const [showProfile, setShowProfile] = useState([])
 
 const showFunction = (profiles) => {
   setShowProfile(profiles)
-  console.log('hello')
 }
 
 // useEffect(() => {
@@ -1553,7 +1555,8 @@ const filteredDetails = details
       
       <div className="home__left__part">
         <SearchBar  input={input} setInput={setInput} select={select} setSelect={setSelect}/>
-        <Details details={showProfile} input={input} select={select}/>
+        {loader ? <Loading />: <Details details={showProfile} input={input} select={select}/> }
+        
         <Pagination details={filteredDetails} showFunction={showFunction} monitor={monitor}/>
       </div>
 

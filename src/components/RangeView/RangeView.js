@@ -1,5 +1,5 @@
 import React from "react";
-import Range from "../Range";
+import Range from "../Range/Range";
 import "./RangeView.css";
 
 function RangeView({ details, type }) {

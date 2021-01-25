@@ -1,0 +1,23 @@
+.range__title, .range__percentage {
+  text-transform: capitalize;
+  font-size: smaller;
+}
+.range{
+    margin-bottom: 20px;
+}
+
+.range__details{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.range__slider__bg{
+    height: 4px;
+    background-color: rgba(98, 108, 255, 0.281);
+}
+.range__slider{
+    height: 4px;
+    background-color: rgb(98, 109, 255);
+    transition: all .5s ease-in-out;
+}

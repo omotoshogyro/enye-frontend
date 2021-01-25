@@ -1,0 +1,16 @@
+.range__view{
+    margin-bottom: 20px;
+}
+
+.range__type{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    /* color: rgb(94, 93, 93); */
+}
+
+@media screen and (max-width: 850px) {
+    .range__view{
+        margin-right: 20px;
+    }
+  }

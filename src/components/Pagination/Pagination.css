@@ -1,0 +1,19 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.each__btn{
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    border-radius: 100%;
+    font-size: 14px;
+    /* background-color: red; */
+    text-align: center;
+}
+.pagination__bg{
+    color: white;
+    background-color:  #7c5df7;
+}

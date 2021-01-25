@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Detail.css";
-import Subject from "./Subject";
+import Subject from "../Subject/Subject";
 
 function Detail({
   detail: {
     FirstName,
     LastName,
     Gender,
+    Latitude,
+    Longitude,
     CreditCardNumber,
     CreditCardType,
     Email,
@@ -18,7 +20,12 @@ function Detail({
     LastLogin,
     PaymentMethod,
   },
-}) {
+})
+
+
+{
+
+  const [showMore, setShowMore] = useState(false)
   const shortText = (text, length) => {
     if (text.includes("https")) {
       return text.slice(8).length >= length
@@ -35,6 +42,13 @@ function Detail({
 
   return (
     <div className="detail">
+      <div className={`overlay ${showMore ? 'slideout' : ''}`}>
+          <Subject title="Mac-Address" value={MacAddress} />
+          <Subject title="lat" value={Latitude} />
+          <Subject title="last seen" value={LastLogin} />
+          <Subject title="long" value={Longitude} />
+          
+      </div>
       <div className="header__section">
         <div className="left__part">
           <div className="name__circle">
@@ -54,7 +68,7 @@ function Detail({
             </p>
           </div>
         </div>
-        <div className="right__part">
+        <div className={`right__part ${showMore ? 'addbg': ''}`}  onClick={() => setShowMore(!showMore)}>
           <div className="firs dot"></div>
           <div className="second dot"></div>
           <div className="third dot"></div>
@@ -78,6 +92,7 @@ function Detail({
           <Subject title="website" value={shortText(URL, 20)} />
         </div>
       </div>
+     
     </div>
   );
 }

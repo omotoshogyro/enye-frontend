@@ -1,3 +1,21 @@
+
+
+.pagination__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination__container > button{
+    height: 30px;
+    padding: 5px 10px;
+    margin: 0px 10px;
+    border: none;
+    outline: none;
+    background-color: #7c5df7;
+    color: white;
+}
+
+
 .pagination{
     display: flex;
     justify-content: center;

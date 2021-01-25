@@ -32,7 +32,7 @@ function Pagination({ details, showFunction, monitor }) {
   return (
     <div className="pagination__container">
         
-      <button className="prev__btn" onClick={currentPage >= 1 ? prevFunc : ''}>Previous</button>
+      <button className="prev__btn" onClick={currentPage > 1 ? prevFunc : ''}>Previous</button>
 
         <div className="pagination">
             {Array(numberOfPaginations)
